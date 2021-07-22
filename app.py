@@ -8,7 +8,7 @@ from werkzeug.utils import redirect
 app = Flask(__name__)
 
 def connect_db():
-    sql = sqlite3.connect('./CSFP/CGA/players.db')
+    sql = sqlite3.connect('./players.db')
     sql.row_factory = sqlite3.Row
     return sql
 
