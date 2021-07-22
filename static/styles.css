@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(150, 149, 149);
+    text-align: center;
+    margin: auto;
+}
+
+.container {
+    max-width: 500px;
+}
+
+nav {
+    max-width: auto;
+}
+
+form {
+    text-align: center;
+}
+
+.card {
+    margin: 5px;
+    padding: 5px;
+}
+
+
+

@@ -1,0 +1,23 @@
+# Push Phase 1 
+
+# Phase 2
+    # Home page 
+        # Create/Join Room
+        # Info tab explaining game and how to use app
+
+    # Create/Join Rooms
+
+        # Master view
+            # Create room and name self
+            # Add master to room and name to db
+            # Show master:
+                # Assign Roles
+                    # Assigns roles and shows up in player's views
+                # Start Game
+                    # Begins timer in each player's view
+
+        # Player view
+            # Take in room code and name
+            # Add player to room and name to db
+
+    # Push Phase 2!

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}How to Play and Use This App{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">How To Use This App</h5>
+            <p class="card-text">Add at least 10 players to the game with the <strong>Add</strong> button.
+                Next you can use the <strong>Add Roles</strong> button to create a secret role for each player.
+                Now each player can click on their name to reveal their role, then click again to hide.
+                The Winning Number is provided at the top!</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">How To Play Christian Guard</h5>
+            <p class="card-text">The two teams in Christian Guard are <strong>Christians</strong> and <strong>Guards</strong>.
+                The Guards have a double agent on their team, the <strong>Christian Guard</strong>.
+            </p>
+            <p class="card-text">   
+                The Guards objective is to have the <strong>Winning Number</strong> of Christians in Jail.
+                The Jail is a designated space where Guards cannot enter, and Christians cannot escape.
+                A Guard can tag up to two Christians and take them to the Jail.
+            </p>
+            <p class="card-text">
+                The Christians objective is to have the <strong>Winning Number</strong> of Christians in the Church.
+                While sneaking around the Guards, the Christians need to share information about who the Christian Guard is and where the Church is.
+            </p>  
+            <p class="card-text">
+                The Christian Guard (hereafter referred to as CG) should try not to be discovered by the Guards. 
+                The CG has the same abilities of Guards.
+                The CG decides the Church location and shares this information with Christians.
+                When at the Jail, the CG can secretly say "Jail Break"; at this point, all Christians must leave the Jail.
+            </p>
+            <p class="card-text">
+                The Guards can attempt to <strong>Execute</strong> the CG. All Guards congregate and if a majority vote is reached, the selected Guard is executed.
+                The game immediately ends, if the Guards selected the CG, they win. Otherwise, the Christians win.
+            </p>
+            <p class="card-text">
+                No one can impersonate another role.
+            </p>
+            <p class="card-text">
+                No Christian who hasn't been captured, can be in the Jail.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

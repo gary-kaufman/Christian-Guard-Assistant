@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}Christian Guard Assistant{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="card text-white" style="background-color: #6c757d;">
+        <form class="form-inline" action="/" method="POST">
+
+            <div class='form-row' style="padding: 5px;">
+                <input autofocus="on" autocomplete="off" type="text" name="player_name" placeholder="Player Name">
+                <button id="add_player" class="btn btn-primary", type="submit">Add</button>
+            </div>
+
+            <div class="form-row">
+                    <a href="{{ url_for('create_roles') }}" class="btn btn-info">New Roles</a>
+                    <a href="{{ url_for('clear_players') }}" class="btn btn-danger">Clear Players</a>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class='alert alert-secondary'>
+        {{w_n_statement}}
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="accordion">
+        {% set count = namespace(value=0) %}
+        {% for row in rows %}
+        <div class="accordion-item" style="background-color: #6c757d;">
+        <h2 class="accordion-header" id="heading{{row['name']}}">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{count.value}}" aria-expanded="false" aria-controls="collapse{{count.value}}">
+            <strong>{{row['name']}}</strong>
+            </button>
+        </h2>
+        <div id="collapse{{count.value}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+            {{row['role']}}
+            <a href="/delete/{{row['name']}}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        </div>
+            {% set count.value = count.value + 1 %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
