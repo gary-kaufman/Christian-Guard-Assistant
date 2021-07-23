@@ -1,4 +1,9 @@
-# Push Phase 1 
+# Push to Github
+# Push to Heroku
+# Test on Heroku
+# Share with friends!
+
+
 
 # Phase 2
     # Home page 

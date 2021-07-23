@@ -5,26 +5,21 @@
 {% block main %}
 <div class="container">
     <div class="card text-white" style="background-color: #6c757d;">
+            <h1 style="padding: 3px;">{{room}}</h1>
         <form class="form-inline" action="/" method="POST">
-
-            <div class='form-row' style="padding: 5px;">
+            <div class='form-row' style="padding: 3px;">
                 <input autofocus="on" autocomplete="off" type="text" name="player_name" placeholder="Player Name">
                 <button id="add_player" class="btn btn-primary", type="submit">Add</button>
             </div>
-
-            <div class="form-row">
+            <div class="form-row" style="padding: 3px;">
                     <a href="{{ url_for('create_roles') }}" class="btn btn-info">New Roles</a>
                     <a href="{{ url_for('clear_players') }}" class="btn btn-danger">Clear Players</a>
             </div>
-
         </form>
-
     </div>
-
     <div class='alert alert-secondary'>
-        {{w_n_statement}}
+        {{statement}}
     </div>
-
 </div>
 
 <div class="container">
@@ -46,6 +41,12 @@
         </div>
             {% set count.value = count.value + 1 %}
         {% endfor %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="card text-white" style="background-color: #6c757d; padding:5px;">
+        <a href="{{ url_for('leave_room') }}" class="btn btn-danger">Leave Room</a>
     </div>
 </div>
 {% endblock %}

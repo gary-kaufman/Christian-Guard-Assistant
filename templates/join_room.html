@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}Join a Room{% endblock %}
+
+{% block main %}
+
+<div class="container">
+    <div class="card text-white" style="background-color: #6c757d;">
+        <h3 style="padding: 3px;">Join a Room and get started!</h3>
+        <form class="form" action="/join_room" method="POST">
+            <div class="form-row" style="padding: 3px;">
+                <input autofocus="on" autocomplete="off" type="text" name="room_name" placeholder="Room Name">
+            </div>
+            <div class="form-row" style="padding: 3px;">
+                <input autocomplete="off" type="password" name="room_code" placeholder="Room Code">
+            </div>
+            <div class="form-row" style="padding: 3px;">
+                <button id="join_room" class="btn btn-primary", type="submit">Join Room</button>
+            </div>
+                
+                
+                
+        </form>
+    </div>
+</div>
+
+{% endblock %}
