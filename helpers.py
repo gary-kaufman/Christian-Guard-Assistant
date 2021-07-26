@@ -32,13 +32,7 @@ def get_roles(p_count):
 
 
 def check_name(name):
-    # Check if name is empty
-    if name == "":
+    if name == "":  # Check if name is empty
         return False
-        
-    # Check if name has any numbers
-    for item in name:
-        if item.isdigit():
-            return False
 
     return True

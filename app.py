@@ -66,21 +66,29 @@ def home():
         
         if request.method == "POST":
             player_name = request.form.get("player_name")  # Get player name
-            valid_name = check_name(player_name)  # Check if name is not empty or contains numbers
+            valid_name_check = check_name(player_name)  # Check if name is not empty
 
-            if valid_name:
-                # If name is valid, insert into game
+            if valid_name_check:  # Check if name already in dict
                 db = get_db()
-                sql = "INSERT INTO {} (name) VALUES (?)".format(session["room"])
-                db.execute(sql, (player_name,))
-                db.commit()
+                sql = "SELECT * FROM {} WHERE name = (?)".format(session["room"])
+                cursor = db.execute(sql, (player_name,))
+                row = cursor.fetchall()
 
-                # Get list of players for display
-                sql = "SELECT * FROM {}".format(session["room"])
-                all_players = db.execute(sql)
-                rows = all_players.fetchall()
-                statement = "Add at least 10 players and then click Create Roles!"
-                return render_template("index.html", rows=rows, statement=statement, room=session['room'])
+                if len(row) != 1:  # If the name is not already in the database
+                    sql = "INSERT INTO {} (name) VALUES (?)".format(session["room"])
+                    db.execute(sql, (player_name,))
+                    db.commit()
+
+                    # Get list of players for display
+                    sql = "SELECT * FROM {}".format(session["room"])
+                    all_players = db.execute(sql)
+                    rows = all_players.fetchall()
+                    statement = "Add at least 10 players and then click Create Roles!"
+                    return render_template("index.html", rows=rows, statement=statement, room=session['room'])
+
+                else:
+                    statement = "Name already exists!"
+                    return redirect("/")
 
             else:
                 statement = "Invalid Name!"
